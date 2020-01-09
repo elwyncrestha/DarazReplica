@@ -1,8 +1,10 @@
-package com.github.elwyncrestha.darazreplica;
+package com.github.elwyncrestha.darazreplica.ui.activity;
+
+import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import com.github.elwyncrestha.darazreplica.R;
 
 public class MainActivity extends AppCompatActivity {
 
