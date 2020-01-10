@@ -11,13 +11,12 @@ import androidx.fragment.app.Fragment;
 
 import com.github.elwyncrestha.darazreplica.R;
 import com.github.elwyncrestha.darazreplica.ui.activity.LoginActivity;
+import com.github.elwyncrestha.darazreplica.util.UserUtils;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class CartFragment extends Fragment {
-
-    private static Boolean loginStatus = false;
 
     public CartFragment() {
         // Required empty public constructor
@@ -30,7 +29,7 @@ public class CartFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cart, container, false);
 
-        if (!loginStatus) {
+        if (!UserUtils.loggedIn) {
             Intent intent = new Intent(getActivity(), LoginActivity.class);
             startActivity(intent);
         }

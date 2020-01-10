@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.github.elwyncrestha.darazreplica.R;
 import com.github.elwyncrestha.darazreplica.ui.activity.LoginActivity;
+import com.github.elwyncrestha.darazreplica.util.UserUtils;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,13 +31,17 @@ public class AccountFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_account, container, false);
         Button btnAccountLogin = view.findViewById(R.id.btnAccountLogin);
-        btnAccountLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                startActivity(intent);
-            }
-        });
+        if (UserUtils.loggedIn) {
+            btnAccountLogin.setText("Logged In");
+        } else {
+            btnAccountLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
         return view;
     }
 
